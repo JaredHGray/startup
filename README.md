@@ -30,3 +30,8 @@ Have you ever debated with your friends about who knows the most random fun fact
 - App creates global leaderboard and calculates positions based on time and number of questions answered 
 - All users can view the global leaderboard
 - Users have the ability to friend each other and receive notifications about each other's game progress 
+
+##Things Learned from Simon
+- A cloud server can only handle so much space taken up by images. It's smart to re-size and reduce resolution before uploading.
+- New HTML commands learned: <hr />, <sup>, <th>
+- Formatting is most likely going to change during creation as you have new ideas and introduce new CSS and JS code. That's good!
