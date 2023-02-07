@@ -33,5 +33,5 @@ Have you ever debated with your friends about who knows the most random fun fact
 
 ## Things Learned from Simon
 - A cloud server can only handle so much space taken up by images. It's smart to re-size and reduce resolution before uploading.
-- New HTML commands learned: "<hr />", "<sup>", "<th>"
+- New HTML commands learned: inserting break line, inserting TM symbol, Making a column head on a table
 - Formatting is most likely going to change during creation as you have new ideas and introduce new CSS and JS code. That's good!
