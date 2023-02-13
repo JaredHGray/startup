@@ -19,6 +19,7 @@ h1{
     font-family: 'Oswald', sans-serif;
 }
 
+
 .headerC{
     color: black;
     display: inline-block;
@@ -37,10 +38,43 @@ h1{
     padding-top: 100px;
 }
 
-.stats{
+.userInfo{
     padding-top: 100px;
     padding-left: 50px;
     text-align: left;
+}
+
+.rank{
+    padding-left: 50px;
+    text-align: left;
+}
+
+.stats{
+    border: black;
+    background-color: white;
+    display: inline-block;
+    border: 1px solid black;
+
+    position: absolute;
+    right: 100px;
+    left: 100px;
+    top: 200px;
+    bottom: 150px;
+
+    font-family: 'Oswald', sans-serif;
+    border-radius: 25px;
+}
+
+.leaderButton{
+    margin-top: 450px;
+}
+
+.rightButton{
+    margin-left: 0px;
+}
+
+.leftButton{
+    margin-left: 600px;
 }
 
 input {
@@ -61,4 +95,17 @@ button:hover {
     outline-color: transparent;
     outline-style:solid;
     box-shadow: 0 0 0 4px #0afbff;
+}
+
+table{
+    margin-top: 5px;
+    width: 100%;
+}
+
+td{
+    padding: 7px;
+}
+
+th{
+    text-decoration: underline;
 }
