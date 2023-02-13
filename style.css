@@ -4,7 +4,7 @@
 body{
    margin: 0;
    text-align: center;
-   background-image: url(space.webp);
+    background-image: url(space.webp);
    background-size: cover;
    height: 100vh;
    padding:0;
@@ -28,12 +28,19 @@ h1{
     position: absolute;
     right: 0px;
     left: 0px;
+    top: 0px;
 
     border-radius: 25px;
 }
 
 .mainB{
     padding-top: 100px;
+}
+
+.stats{
+    padding-top: 100px;
+    padding-left: 50px;
+    text-align: left;
 }
 
 input {
