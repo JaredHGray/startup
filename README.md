@@ -35,3 +35,7 @@ Have you ever debated with your friends about who knows the most random fun fact
 - A cloud server can only handle so much space taken up by images. It's smart to re-size and reduce resolution before uploading.
 - New HTML commands learned: inserting break line, inserting TM symbol, Making a column head on a table
 - Formatting is most likely going to change during creation as you have new ideas and introduce new CSS and JS code. That's good!
+
+## Things Learned from Startup
+- It's tricky to line up things to look the way you want them to on a website. You sometimes have conflicting CSS classes and rules, so you need to make sure everything is cleary defined. It helps to divide the webpage by div and section attributes then makes specific classes for each attribute.  
+- w3schools is the way to go
