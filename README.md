@@ -39,3 +39,4 @@ Have you ever debated with your friends about who knows the most random fun fact
 ## Things Learned from Startup
 - It's tricky to line up things to look the way you want them to on a website. You sometimes have conflicting CSS classes and rules, so you need to make sure everything is cleary defined. It helps to divide the webpage by div and section attributes then makes specific classes for each attribute.  
 - w3schools is the way to go
+- need to add favicon 
