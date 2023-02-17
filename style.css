@@ -24,76 +24,60 @@ h1{
     display: inline-block;
     border: 1px solid black;
     background-color: white;
-    
-    position: absolute;
-    right: 0px;
-    left: 0px;
-    top: 0px;
+    width: 100%;
 
     border-radius: 25px;
 }
 
-.mainB{
-    padding-top: 100px;
-}
-
 .userInfo{
-    padding-top: 100px;
-    padding-left: 50px;
+    padding-left: 5%;
     float: left;
 }
 
 .userInfoRight{
-    padding-top: 100px;
-    padding-right: 50px;
+    padding-right: 5%;
     float: right;
 }
 
 .userInfoCenter {
-    padding-top: 100px;
-    padding-left: 460px;
+    padding-left: 25%;
     float: left;
     display: flex;
     align-items: center;
 }
 
 .strike{
-    padding-top: 125px;
-    padding-left: 10px;
+    padding-top: 1em;
+    padding-left: 1.25%;
     float: left;
 }
 
 .rank{
-    padding-left: 50px;
+    padding-left: 5%;
     text-align: left;
 }
 
 .stats{
-    border: black;
+    width: 50rem;
+    height: 32rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin: auto;
+
     background-color: white;
-    display: inline-block;
-    border: 1px solid black;
-
-    position: absolute;
-    right: 100px;
-    left: 100px;
-    top: 200px;
-    bottom: 150px;
-
+    /* display: inline-block; */
     font-family: 'Oswald', sans-serif;
-    border-radius: 25px;
+    border-radius: 30px;
 }
 
 .leaderButton{
-    margin-top: 450px;
+    margin-top: 2%;
 }
 
 .rightButton{
-    margin-left: 0px;
-}
-
-.leftButton{
-    margin-left: 600px;
+    margin-left: 50%;
 }
 
 .material-symbols-outlined {

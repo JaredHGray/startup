@@ -42,3 +42,4 @@ Have you ever debated with your friends about who knows the most random fun fact
 - CSS is super complex, especially to get things lined up the desired way
 - using specific selectors, such as inheritance making it a bit easier to divide and specify individual CSS rules
 - trying out flex on the game.html webpage and it seems to be working well, especially using the em rule to indicate width and height then wrap-around to make the 4 input options line-up
+- rely on percentages and em to dictate where an item is located on the screen, using px to hard-code makes it look funky where switching screen size
