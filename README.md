@@ -39,4 +39,6 @@ Have you ever debated with your friends about who knows the most random fun fact
 ## Things Learned from Startup
 - It's tricky to line up things to look the way you want them to on a website. You sometimes have conflicting CSS classes and rules, so you need to make sure everything is cleary defined. It helps to divide the webpage by div and section attributes then makes specific classes for each attribute.  
 - w3schools is the way to go
-- need to add favicon 
+- CSS is super complex, especially to get things lined up the desired way
+- using specific selectors, such as inheritance making it a bit easier to divide and specify individual CSS rules
+- trying out flex on the game.html webpage and it seems to be working well, especially using the em rule to indicate width and height then wrap-around to make the 4 input options line-up
