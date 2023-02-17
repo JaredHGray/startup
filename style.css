@@ -49,6 +49,14 @@ h1{
     float: right;
 }
 
+.userInfoCenter {
+    padding-top: 100px;
+    padding-left: 460px;
+    float: left;
+    display: flex;
+    align-items: center;
+}
+
 .strike{
     padding-top: 125px;
     padding-left: 10px;
@@ -187,6 +195,7 @@ button:hover {
     outline-color: transparent;
     outline-style:solid;
     box-shadow: 0 0 0 4px #0afbff;
+    cursor: pointer;
 }
 
 table{
