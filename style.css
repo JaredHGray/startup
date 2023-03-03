@@ -14,6 +14,10 @@ h1{
     font-family: 'Source Code Pro', monospace;
 }
 
+#container{
+    font-size: xx-large;
+}
+
 .wording{
     color: white;
     font-family: 'Oswald', sans-serif;
