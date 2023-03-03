@@ -1,10 +1,11 @@
+// JS for the coutdown screen 
 let current_count = 5;
 const countjob = setInterval("countDown()", 1000);
 
 window.addEventListener('DOMContentLoaded', (event) => {
    console.log('DOM fully loaded and parsed');
    element = document.querySelector('.revealGame');
-   element.style.visibility = 'hidden';
+   element.style.visibility = 'hidden'; //on load of screen hide normal HTML
    document.body.style.backgroundImage = 'none';
    countjob;
 });
@@ -18,7 +19,8 @@ function countDown() {
     clearInterval(countjob);
     document.getElementById("container",).innerHTML = `<h2> </h2>`;
     element = document.querySelector('.revealGame');
-    element.style.visibility = 'visible';
+    element.style.visibility = 'visible'; //reveal HTML
     document.body.style.backgroundImage = "url(space.webp)";
     }
 }
+//end of countdown code
