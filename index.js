@@ -64,3 +64,39 @@ function DisplayQuestion(index) {
     document.getElementById('option3Label').innerHTML = currentQuestion.optionC;
     document.getElementById('option4Label').innerHTML = currentQuestion.optionD;
 }
+
+function checkAnswer(){
+    const currentQuestion = shuffledQuestions[indexNumber]; //get current question
+    const currentQuestionAnswer = currentQuestion.correctOption; //get correct answer
+    const options = document.getElementsByName('option'); //get contents of all the possible answers
+    let correctAnswer = null; 
+
+    options.forEach((option) => {
+        if(option.value == currentQuestionAnswer){
+            correctAnswer = option.labels[0].id; 
+        } //sets correctAnswer = to the correct radio input button
+    })
+
+    options.forEach((option) => { //checking if the checked button is same as answer
+        if(option.checked === true && option.value === currentQuestionAnswer){
+            playerScore++; //increase player score
+            indexNumber++; //increase index for next question
+            document.getElementById(correctAnswer).style.backgroundColor = 'green';
+
+            setTimeout(() => { //delay until next question loads
+                questionNumber++;
+            }, 1000)
+        }
+
+        else if(option.checked && option.value !== currentQuestionAnswer){
+            const wrongLabel = option.label[0].id;
+            document.getElementById(wrongLabel).style.backgroundColor = 'red';
+            wrongAnswer++; //index incorrect attempts
+            indexNumber++; //increase index for next question
+
+            setTimeout(() => { //delay until next question loads
+                questionNumber++;
+            }, 1000)
+        }
+    })
+}
