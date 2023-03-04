@@ -38,6 +38,10 @@ Have you ever debated with your friends about who knows the most random fun fact
 - Bootstrap is actually really useful and makes a website look slick, it just takes time to learn all the nuances of it and the different classes available 
 - I learned of the usefulness of using flex and its different variables to arrange a website. Big fan of justify content and align items, makes things pretty.
 - Making a website slick takes a lot of effort and skill. It takes a lot to manipulate CSS to look modern and good, and right now my skills with it are ok, but I think I just need more practice to make better looking websites.
+- I've learned how I am going to store and arrnage scores for display in my startup project from this project, so that's super nice.
+- JS is super complicated it what I got from this project, but at the same time fairly intuitative, especially with VScode helping out by suggesting commands and functions.
+- I also learned it is easier to split up JS into different files based on which HTML they are associated with, making easier to manage.
+- I learned more about appendChild using the DOM and am excited to try this one out.
 
 ## Things Learned from Startup
 - It's tricky to line up things to look the way you want them to on a website. You sometimes have conflicting CSS classes and rules, so you need to make sure everything is cleary defined. It helps to divide the webpage by div and section attributes then makes specific classes for each attribute.  

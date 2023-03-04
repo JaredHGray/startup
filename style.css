@@ -135,7 +135,6 @@ h1{
     justify-content: center;
     border: 2px solid darkgray;
     border-radius: 25px;
-    /* margin-bottom: 18rem; */
 }
 
 .question-container h1{
@@ -145,21 +144,12 @@ h1{
 }
 
 .choices-container{
-    /* width: 85%;
-    height: 8rem;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    border: 2px solid darkgray;
-    margin-bottom: 18rem; */
     width: 85%;
     height: 12rem;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
-    /* border: 2px solid darkgray; */
 }
 
 .choices-container span {
@@ -182,7 +172,7 @@ span label{
     font-family: 'Oswald', sans-serif;
 }
 
-span:hover{
+.hovering:hover{
     outline-color: transparent;
     outline-style:solid;
     box-shadow: 0 0 0 4px #0afbff;
