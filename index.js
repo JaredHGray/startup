@@ -43,13 +43,30 @@ const questions = [
         optionC: "River Trent",
         optionD: "River Tweed",
         correctOption: "optionA"
-    }
+    },
+    {
+        question: "Which Planet is the hottest ?",
+        optionA: "Jupitar",
+        optionB: "Mercury",
+        optionC: "Earth",
+        optionD: "Venus",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "where is the smallest bone in human body located?",
+        optionA: "Toes",
+        optionB: "Ears",
+        optionC: "Fingers",
+        optionD: "Nose",
+        correctOption: "optionB"
+    },
 ]
 
 let shuffledQuestions = [] //empty array to shuffle questions
 
 function questionOrder() { //shuffles the questions and stores them in the shuffledQuestions array
-    while(shuffledQuestions.length <= 1){
+    while(shuffledQuestions.length <= 3){
         const random = questions[Math.floor(Math.random() * questions.length)];
         if (!shuffledQuestions.includes(random)) {
             shuffledQuestions.push(random)
@@ -98,7 +115,7 @@ function checkAnswer(){
         }
 
         else if(option.checked && option.value !== currentQuestionAnswer){
-            const wrongLabel = option.label[0].id;
+            const wrongLabel = option.labels[0].id;
             document.getElementById(wrongLabel).style.backgroundColor = '#fe3d02';
             wrongAnswer++; //index incorrect attempts
             indexNumber++; //increase index for next question
@@ -115,7 +132,7 @@ function nextQuestion(){
     uncheckButtons();
 
     setTimeout (() => {
-        if(indexNumber <= 1){
+        if(indexNumber <= 3){
             DisplayQuestion(indexNumber);
         }
         else{
