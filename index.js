@@ -35,13 +35,21 @@ const questions = [
     optionC: "Three",
     optionD: "Four",
     correctOption: "optionC"
+    },
+    {
+        question: "The longest river in the United Kingdom is ?",
+        optionA: "River Severn",
+        optionB: "River Mersey",
+        optionC: "River Trent",
+        optionD: "River Tweed",
+        correctOption: "optionA"
     }
 ]
 
 let shuffledQuestions = [] //empty array to shuffle questions
 
 function questionOrder() { //shuffles the questions and stores them in the shuffledQuestions array
-    while(shuffledQuestions.length <= 0){
+    while(shuffledQuestions.length <= 1){
         const random = questions[Math.floor(Math.random() * questions.length)];
         if (!shuffledQuestions.includes(random)) {
             shuffledQuestions.push(random)
@@ -81,7 +89,7 @@ function checkAnswer(){
         if(option.checked === true && option.value === currentQuestionAnswer){
             playerScore++; //increase player score
             indexNumber++; //increase index for next question
-            document.getElementById(correctAnswer).style.backgroundColor = 'green';
+            document.getElementById(correctAnswer).style.backgroundColor = '#12ff0a';
 
             setTimeout(() => { //delay until next question loads
                 questionNumber++;
@@ -90,7 +98,7 @@ function checkAnswer(){
 
         else if(option.checked && option.value !== currentQuestionAnswer){
             const wrongLabel = option.label[0].id;
-            document.getElementById(wrongLabel).style.backgroundColor = 'red';
+            document.getElementById(wrongLabel).style.backgroundColor = '#fe3d02';
             wrongAnswer++; //index incorrect attempts
             indexNumber++; //increase index for next question
 
@@ -99,4 +107,37 @@ function checkAnswer(){
             }, 1000)
         }
     })
+}
+
+function nextQuestion(){
+    checkAnswer(); //check if previous question was correct
+    uncheckButtons();
+
+    setTimeout (() => {
+        if(indexNumber <= 1){
+            DisplayQuestion(indexNumber);
+        }
+        else{
+            endGameScreen();
+        }
+        resetOptionBackground();
+    }, 1000)
+
+    function uncheckButtons(){ //reset all the button
+        const options = document.getElementsByClassName('option');
+        for(let i = 0; i < options.length; i++){
+            options[i].checked = false;
+        }
+    }
+
+    function resetOptionBackground(){ //reset all background colors to white
+        const options = document.getElementsByClassName('option');
+        options.forEach((option) =>{
+            document.getElementById(option.label[0].id).style.backgroundColor = "";
+        })
+    }
+
+    function endGameScreen(){
+        window.location.href = "endScreen.html"; 
+    }
 }
