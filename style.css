@@ -67,10 +67,9 @@ h1{
 }
 
 .userInfoCenter {
-    padding-left: 25%;
-    float: left;
-    display: flex;
-    align-items: center;
+    /* padding-right: 12.5%; */
+    position: absolute;
+    left: 44.5%;
 }
 
 .strike{

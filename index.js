@@ -9,6 +9,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
    document.body.style.backgroundImage = 'none';
    countjob;
    DisplayQuestion(0);
+   timer = true; //initates the counter
+   setTimeout (() => {
+    stopWatch();
+}, 5000)
 });
 
 function countDown() {
@@ -37,7 +41,7 @@ const questions = [
     correctOption: "optionC"
     },
     {
-        question: "The longest river in the United Kingdom is ?",
+        question: "The longest river in the United Kingdom is?",
         optionA: "River Severn",
         optionB: "River Mersey",
         optionC: "River Trent",
@@ -172,4 +176,38 @@ function wrongAttempts(){
     if(wrongAnswer === 3){
         document.querySelector('#incorrect3').innerHTML = `close`;
     }
+}
+
+let count = 0;
+let minute = 0;
+let second = 0;
+let timer = false;
+
+//stopWatch Function
+function stopWatch(){
+    if(timer){
+        count++; 
+
+        if (count == 100) {
+            second++;
+            count = 0;
+        }
+  
+        if (second == 60) {
+            minute++;
+            second = 0;
+        }
+    }
+
+    let secString = second < 10 ? "0" + second : second;
+    let minString = minute < 10 ? "0" + minute : minute;
+
+    let time = `${minString} : ${secString}`;
+
+    document.getElementById('timeDisplay').innerHTML = time;
+
+    // setTimeout(stopWatch(), 10);
+    setTimeout (() => {
+        stopWatch();
+    }, 10)
 }
