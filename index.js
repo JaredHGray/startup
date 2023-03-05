@@ -63,6 +63,7 @@ let wrongAnswer = 0; //holds #wrong answers by player
 let indexNumber = 0; //used in displaying next question
 
 function DisplayQuestion(index) {
+    resetOptionBackground();
     questionOrder();
     const currentQuestion = shuffledQuestions[index];
     document.getElementById('questionNumber').innerHTML = questionNumber;
@@ -124,20 +125,20 @@ function nextQuestion(){
     }, 1000)
 
     function uncheckButtons(){ //reset all the button
-        const options = document.getElementsByClassName('option');
+        const options = document.getElementsByName('option');
         for(let i = 0; i < options.length; i++){
             options[i].checked = false;
         }
     }
 
-    function resetOptionBackground(){ //reset all background colors to white
-        const options = document.getElementsByClassName('option');
-        options.forEach((option) =>{
-            document.getElementById(option.label[0].id).style.backgroundColor = "";
-        })
-    }
-
     function endGameScreen(){
         window.location.href = "endScreen.html"; 
     }
+}
+
+function resetOptionBackground() {
+    const options = document.getElementsByName("option");
+    options.forEach((option) => {
+        document.getElementById(option.labels[0].id).style.backgroundColor = "";
+    })
 }
