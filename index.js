@@ -142,6 +142,7 @@ function nextQuestion(){
             DisplayQuestion(indexNumber);
         }
         else{
+            endTimer();
             endGameScreen();
         }
         resetOptionBackground();
@@ -178,12 +179,13 @@ function wrongAttempts(){
     }
 }
 
+//stopWatch Function
 let count = 0;
 let minute = 0;
 let second = 0;
 let timer = false;
+let timeKeeper;
 
-//stopWatch Function
 function stopWatch(){
     if(timer){
         count++; 
@@ -203,6 +205,7 @@ function stopWatch(){
     let minString = minute < 10 ? "0" + minute : minute;
 
     let time = `${minString} : ${secString}`;
+    timeKeeper = minString + ":" + secString;
 
     document.getElementById('timeDisplay').innerHTML = time;
 
@@ -211,3 +214,11 @@ function stopWatch(){
         stopWatch();
     }, 10)
 }
+
+function endTimer(){
+    timer = false;
+    count = 0;
+    second = 0;
+    minute = 0; 
+}
+//end of stopWatch code
