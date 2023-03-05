@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 
 <body>
@@ -19,7 +18,7 @@
         <form method="get" action="home.html">
             <input type="text" id="username" placeholder="Enter Username" required/> </br>
             <input type="text" id="password" placeholder="Enter Password" required/> </br> </br>
-            <button type="submit">LOGIN</button> </br>
+            <button onclick="login()">LOGIN</button> </br>
         </form>
         <p class="wording">OR</p>
         <button onclick="window.location.href = 'register.html'">REGISTER</button>
@@ -30,4 +29,5 @@
     <a id="footerLeft" href="https://jgray.click" target="_blank">JGray</a>
     <a id="footerRight" href="https://github.com/JaredHGray/startup.git" target="_blank">Source</a>
 </footer>
+<script src="login.js"></script>
 </html>
