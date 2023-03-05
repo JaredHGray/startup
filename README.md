@@ -54,3 +54,7 @@ Have you ever debated with your friends about who knows the most random fun fact
 - 'DOMContentLoaded' is useful for when screen loads
 - document.getElementByID and ClassName are super helpful 
 - setInterval and clearInterval can be used to count things at a set pace
+- setTimeout is super useful to delay actions and functions from taking place immediately with JS
+- the forEach loop is useful to go through the elements in an array and do things to each individual one
+- You can only uncheck radio buttons using JS, cannot be done with HTML or CSS
+- Split JS into different files when you can, makes everything cleaner
