@@ -122,6 +122,8 @@ function checkAnswer(){
 
             setTimeout(() => { //delay until next question loads
                 questionNumber++;
+                //change value of displayed characters 
+                wrongAttempts();
             }, 1000)
         }
     })
@@ -132,14 +134,14 @@ function nextQuestion(){
     uncheckButtons();
 
     setTimeout (() => {
-        if(indexNumber <= 3){
+        if(wrongAnswer <= 2 && indexNumber <= 3){
             DisplayQuestion(indexNumber);
         }
         else{
             endGameScreen();
         }
         resetOptionBackground();
-    }, 1000)
+    }, 2000)
 
     function uncheckButtons(){ //reset all the button
         const options = document.getElementsByName('option');
@@ -158,4 +160,16 @@ function resetOptionBackground() {
     options.forEach((option) => {
         document.getElementById(option.labels[0].id).style.backgroundColor = "";
     })
+}
+
+function wrongAttempts(){
+    if(wrongAnswer === 1){
+        document.querySelector('#incorrect1').innerHTML = `close`;
+    }
+    if(wrongAnswer === 2){
+        document.querySelector('#incorrect2').innerHTML = `close`;
+    }
+    if(wrongAnswer === 3){
+        document.querySelector('#incorrect3').innerHTML = `close`;
+    }
 }
