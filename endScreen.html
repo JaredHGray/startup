@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Finished</title>
         <link rel="stylesheet" href="style.css">
-        <link rel="icon" type="image/x-icon" href="favicon.ico">
     </head>
 <body>
     <main>
@@ -15,10 +14,18 @@
         <div class="quiz-container" style="margin-top: 5%;">
             <h1 id="comments"></h1>
             <div class="grade-details">
-                <p>Right Answers: <span id="correctAnswer" font-size: larger;></span></p>
-                <p>Wrong Answers: <span id="incorrectAnswer" font-size: larger;></span></p>
-                <p>Grade: <span id="grade" font-size: larger;></span>%</p>
+                <p>Right Answers: <span id="correctAnswer" style="font-size: larger;"></span></p>
+                <p>Wrong Answers: <span id="incorrectAnswer" style="font-size: larger;"></span></p>
+                <p>Grade: <span id="grade" style="font-size: larger;"></span>%</p>
                 <p>Time: <span id="totalTime" style="font-size: larger;"></span></p>
+            </div>
+            <div>
+                <button onclick="window.location.href = 'game.html'">PLAY AGAIN</button>
+            </div>
+            <div>
+                <button onclick="window.location.href = 'Leaderboard.html'">LEADERBOARD</button>
+                <button onclick="window.location.href = 'home.html'">HOME</button>
+                <button onclick="window.location.href = 'index.html'">LOGOUT</button>
             </div>  
         </div> 
     </main>
