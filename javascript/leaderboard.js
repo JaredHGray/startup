@@ -33,9 +33,7 @@ function loadScores() {
   
         tableBodyEl.appendChild(rowEl);
       }
-    } else {
-      tableBodyEl.innerHTML = '<tr><td colSpan=4>Be the first to score</td></tr>';
-    }
+    } 
   }
 
   function playerName() {
