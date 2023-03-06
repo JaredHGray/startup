@@ -31,7 +31,7 @@ function countDown() {
     document.getElementById("container",).innerHTML = `<h2> </h2>`;
     element = document.querySelector('.revealGame');
     element.style.visibility = 'visible'; //reveal HTML
-    document.body.style.backgroundImage = "url(space.webp)";
+    document.body.style.backgroundImage = "url(../css/space.webp)";
     }
 }
 //end of countdown code
