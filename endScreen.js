@@ -1,5 +1,6 @@
 window.addEventListener('DOMContentLoaded', (event) => {
     endGame();
+    saveScore();
 });
 
 function endGame(){
@@ -34,4 +35,39 @@ function endGame(){
     document.getElementById('grade').innerHTML = playerGrade;
 }
 
+function saveScore() {
+    const userName = JSON.parse(localStorage.getItem('userResults')).name;
+    let score = JSON.parse(localStorage.getItem('userResults')).score;
+    let time = JSON.parse(localStorage.getItem('userResults')).time;
+    let scores = [];
+    const scoresText = localStorage.getItem('scores');
+    if (scoresText) {
+      scores = JSON.parse(scoresText);
+    }
+    scores = updateScores(userName, score, time, scores);
 
+    localStorage.setItem('scores', JSON.stringify(scores));
+  }
+
+  function updateScores(userName, score, time, scores) {
+    const newScore = { name: userName, score: score, time: time };
+
+    let found = false;
+    for (const [i, prevScore] of scores.entries()) {
+      if (score > prevScore.score) {
+        scores.splice(i, 0, newScore);
+        found = true;
+        break;
+      }
+    }
+
+    if (!found) {
+      scores.push(newScore);
+    }
+
+    if (scores.length > 10) {
+      scores.length = 10;
+    }
+
+    return scores;
+  }

@@ -49,7 +49,7 @@ const questions = [
         correctOption: "optionA"
     },
     {
-        question: "Which Planet is the hottest ?",
+        question: "Which Planet is the hottest?",
         optionA: "Jupitar",
         optionB: "Mercury",
         optionC: "Earth",
@@ -58,7 +58,7 @@ const questions = [
     },
 
     {
-        question: "where is the smallest bone in human body located?",
+        question: "Where is the smallest bone in human body located?",
         optionA: "Toes",
         optionB: "Ears",
         optionC: "Fingers",
