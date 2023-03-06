@@ -54,7 +54,7 @@ function saveScore() {
 
     let found = false;
     for (const [i, prevScore] of scores.entries()) {
-      if (score > prevScore.score) {
+      if ((score > prevScore.score)) {
         scores.splice(i, 0, newScore);
         found = true;
         break;
@@ -71,3 +71,5 @@ function saveScore() {
 
     return scores;
   }
+
+  ///figure out time comparisons 

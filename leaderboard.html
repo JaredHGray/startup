@@ -5,9 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Leaderboard</title>
         <link rel="stylesheet" href="style.css">
-        <link rel="icon" type="image/x-icon" href="favicon.ico">
     </head>
-    <body>
+<body>
+    <main>
         <div class="headerC">
             <h1>KNOW YOUR FACTS!</h1>
         </div> 
@@ -15,46 +15,16 @@
             <p class="wording rank">Display User Rank</p>
             <h2 class="wording">Global Leaderboard</h2>
             <div class="stats">
-                <table>
+                <table class="ranking">
                     <thead>
-                        <th>RANK</th>
-                        <th>NAME</th>
-                        <th>COMPLETED</th>
-                        <th>TIME</th>
+                        <tr>
+                            <th>RANK</th>
+                            <th>NAME</th>
+                            <th>COMPLETED</th>
+                            <th>TIME</th>
+                        </tr>
                     </thead>
-                    <tr>
-                        <td>1</td>
-                        <td>Top Player</td>
-                        <td>100/120</td>
-                        <td>5 min 31 sec</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                    </tr>
-                    <tr>
-                        <td>9</td>
-                    </tr>
-                    <tr>
-                        <td>10</td>
-                    </tr>
+                    <tbody id="scores"></tbody>
                 </table>
             </div>
         </div>
@@ -62,9 +32,12 @@
             <button onclick="window.location.href = 'home.html'">HOME</button>
             <button onclick="window.location.href = 'index.html'" class="rightButton">LOGOUT</button>
         </div>
-    </body>
+    </main>
     <footer>
         <a id="footerLeft" href="https://jgray.click" target="_blank">JGray</a>
         <a id="footerRight" href="https://github.com/JaredHGray/startup.git" target="_blank">Source</a>
     </footer>
+
+    <script src="leaderboard.js"></script>
+</body>
 </html>

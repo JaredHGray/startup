@@ -91,12 +91,14 @@ h1{
     align-items: center;
     justify-content: space-around;
     margin: auto;
-
     background-color: white;
-    /* display: inline-block; */
     font-family: 'Oswald', sans-serif;
     border-radius: 30px;
 }
+
+/* .ranking{
+
+} */
 
 .leaderButton{
     margin-top: 2%;

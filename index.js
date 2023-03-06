@@ -1,5 +1,5 @@
 // JS for the coutdown screen 
-let current_count = 5;
+let current_count = 3;
 const countjob = setInterval("countDown()", 1000);
 
 window.addEventListener('DOMContentLoaded', (event) => {
