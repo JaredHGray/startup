@@ -46,6 +46,11 @@ h1{
     font-family: 'Oswald', sans-serif;
 }
 
+.wording span{
+    color: #0afbff;
+    font-size: large;
+}
+
 .headerC{
     color: black;
     display: inline-block;

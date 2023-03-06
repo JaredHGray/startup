@@ -58,3 +58,6 @@ Have you ever debated with your friends about who knows the most random fun fact
 - the forEach loop is useful to go through the elements in an array and do things to each individual one
 - You can only uncheck radio buttons using JS, cannot be done with HTML or CSS
 - Split JS into different files when you can, makes everything cleaner
+- the for loop is extremely useful to go through all the variables of an array- ex: "for (const [i, score] of scores.entries())" to go through the stored scores
+- compare scores by names to find a user's score
+- createElement and appendChild of the DOM is useful for table situations 
