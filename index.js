@@ -156,7 +156,12 @@ function nextQuestion(){
         }
     }
 
-    function endGameScreen(){
+    function endGameScreen(){ //resets everything and sends to end screen
+        questionNumber = 1;
+        playerScore = 0;
+        wrongAnswer = 0;
+        indexNumber = 0;
+        shuffledQuestions = [];
         window.location.href = "endScreen.html"; 
     }
 }
