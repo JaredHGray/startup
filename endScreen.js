@@ -52,9 +52,15 @@ function saveScore() {
   function updateScores(userName, score, time, scores) {
     const newScore = { name: userName, score: score, time: time };
 
+    let minutes = time.substring(0,2);
+    let seconds = time.substring(5,3);
+    console.log("current min:" + minutes);
+    console.log("current sec:" + seconds);
+
     let found = false;
     for (const [i, prevScore] of scores.entries()) {
-      if ((score > prevScore.score)) {
+        let compare = timeComparison(score, prevScore, minutes, seconds);
+      if ((score >= prevScore.score) && compare) {
         scores.splice(i, 0, newScore);
         found = true;
         break;
@@ -70,6 +76,33 @@ function saveScore() {
     }
 
     return scores;
+  }
+
+  function timeComparison(score, prevScore, minute, second){
+
+    let prevMin = prevScore.time.substring(0,2);
+    let prevSec = prevScore.time.substring(5,3);
+
+    if(score > prevScore.score){
+        return true;
+    }
+    else if(score == prevScore.score){
+        if(+minute <= +prevMin){
+            if(+second < +prevSec){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        else{
+            return false;
+        }
+    }
+    else{
+        return false;
+    }
+
   }
 
   ///figure out time comparisons 

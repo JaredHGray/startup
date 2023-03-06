@@ -12,7 +12,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
    timer = true; //initates the counter
    setTimeout (() => {
     stopWatch();
-}, 5000)
+}, 3000)
 });
 
 function countDown() {
