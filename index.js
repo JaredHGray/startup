@@ -143,6 +143,7 @@ function nextQuestion(){
         }
         else{
             endTimer();
+            storeScore();
             endGameScreen();
         }
         resetOptionBackground();
@@ -177,6 +178,12 @@ function wrongAttempts(){
     if(wrongAnswer === 3){
         document.querySelector('#incorrect3').innerHTML = `close`;
     }
+}
+
+function storeScore(){
+    let userName = JSON.parse(localStorage.getItem('userInfo')).name;
+    const newScore = {name: userName, score: playerScore, incorrect: wrongAnswer, time: timeKeeper}
+    localStorage.setItem("userResults", JSON.stringify(newScore));
 }
 
 //stopWatch Function
@@ -217,6 +224,7 @@ function stopWatch(){
 
 function endTimer(){
     timer = false;
+    localStorage.setItem("userTime", JSON.stringify(timeKeeper));
     count = 0;
     second = 0;
     minute = 0; 
