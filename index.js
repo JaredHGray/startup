@@ -7,8 +7,14 @@ window.addEventListener('DOMContentLoaded', (event) => {
    element = document.querySelector('.revealGame');
    element.style.visibility = 'hidden'; //on load of screen hide normal HTML
    document.body.style.backgroundImage = 'none';
+
+   setTimeout (() => {
+    document.getElementById("container",).innerHTML = `<h2>READY?</h2>`;
+   }, 500)
+
    countjob;
    DisplayQuestion(0);
+
    timer = true; //initates the counter
    setTimeout (() => {
     stopWatch();
@@ -33,12 +39,12 @@ function countDown() {
 //object to store questions 
 const questions = [
     {
-    question: "How many hearts does an Octopus have?",
-    optionA: "One",
-    optionB: "Two",
-    optionC: "Three",
-    optionD: "Four",
-    correctOption: "optionC"
+        question: "How many hearts does an Octopus have?",
+        optionA: "One",
+        optionB: "Two",
+        optionC: "Three",
+        optionD: "Four",
+        correctOption: "optionC"
     },
     {
         question: "The longest river in the United Kingdom is?",
@@ -56,7 +62,6 @@ const questions = [
         optionD: "Venus",
         correctOption: "optionB"
     },
-
     {
         question: "Where is the smallest bone in human body located?",
         optionA: "Toes",
@@ -65,12 +70,60 @@ const questions = [
         optionD: "Nose",
         correctOption: "optionB"
     },
+    {
+        question: "What is the capital of Germany?",
+        optionA: "Dresden",
+        optionB: "Frankfurt",
+        optionC: "Bonn",
+        optionD: "Berlin",
+        correctOption: "optionD"
+    },
+    {
+        question: "How man states does Nigeria have?",
+        optionA: "24",
+        optionB: "30",
+        optionC: "36",
+        optionD: "37",
+        correctOption: "optionC"
+    },
+    {
+        question: "How many permanent teeth does a dog have?",
+        optionA: "38",
+        optionB: "42",
+        optionC: "40",
+        optionD: "36",
+        correctOption: "optionB"
+    },
+    {
+        question: "Which is the longest river in the world?",
+        optionA: "Nile River",
+        optionB: "Amazon River",
+        optionC: "Yangtze River",
+        optionD: "Congo River",
+        correctOption: "optionA"
+    },
+    {
+        question: "Who was the 13th President of the USA?",
+        optionA: "Mllard Fillmore",
+        optionB: "Franklin Pierce",
+        optionC: "Abraham Lincoln",
+        optionD: "William Harrison",
+        correctOption: "optionA"
+    },
+    {
+        question: "How many players are on a rugby team?",
+        optionA: "10 players",
+        optionB: "12 players",
+        optionC: "15 players",
+        optionD: "17 players",
+        correctOption: "optionC"
+    }
 ]
 
 let shuffledQuestions = [] //empty array to shuffle questions
 
 function questionOrder() { //shuffles the questions and stores them in the shuffledQuestions array
-    while(shuffledQuestions.length <= 3){
+    while(shuffledQuestions.length <= 9){
         const random = questions[Math.floor(Math.random() * questions.length)];
         if (!shuffledQuestions.includes(random)) {
             shuffledQuestions.push(random)
@@ -138,7 +191,7 @@ function nextQuestion(){
     uncheckButtons();
 
     setTimeout (() => {
-        if(wrongAnswer <= 2 && indexNumber <= 3){
+        if(wrongAnswer <= 2 && indexNumber <= 9){
             DisplayQuestion(indexNumber);
         }
         else{
@@ -201,12 +254,10 @@ let timeKeeper;
 function stopWatch(){
     if(timer){
         count++; 
-
         if (count == 100) {
             second++;
             count = 0;
         }
-  
         if (second == 60) {
             minute++;
             second = 0;
@@ -221,7 +272,6 @@ function stopWatch(){
 
     document.getElementById('timeDisplay').innerHTML = time;
 
-    // setTimeout(stopWatch(), 10);
     setTimeout (() => {
         stopWatch();
     }, 10)

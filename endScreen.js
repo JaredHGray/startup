@@ -16,7 +16,7 @@ function endGame(){
     else if(playerWrong < 3 && playerScore < 5){
         remarks = "Oof. Maybe you need to study up...";
     }
-    else if(playerWrong < 3 && (playerScore > 5 && playerScore <= 10)){
+    else if(playerWrong < 3 && (playerScore > 5 && playerScore < 8)){
         remarks = "Not bad! But you can do better.";
     }
     else if(playerWrong < 3 && (playerScore >= 8)){
@@ -104,5 +104,3 @@ function saveScore() {
     }
 
   }
-
-  ///figure out time comparisons 

@@ -61,3 +61,5 @@ Have you ever debated with your friends about who knows the most random fun fact
 - the for loop is extremely useful to go through all the variables of an array- ex: "for (const [i, score] of scores.entries())" to go through the stored scores
 - compare scores by names to find a user's score
 - createElement and appendChild of the DOM is useful for table situations 
+- make sure to update parameters of code as you are testing and increasing the question capacity - such as increasing index capacity of shuffledQuestions() and nextQuestions()
+- you can turn a string into a number by adding a + symbol to the front. Example: min = "24" and +min = 24
