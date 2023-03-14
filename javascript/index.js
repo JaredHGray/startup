@@ -36,6 +36,40 @@ function countDown() {
 }
 //end of countdown code
 
+//testing fetch
+const url = "https://the-trivia-api.com/api/questions?limit=1&region=US";
+
+let trivia = [];
+
+// async function getNewQuestions() {
+//     fetch(url)
+//     .then((response) => response.json())
+//     .then((data) => {
+//         console.log(data);
+//         let answers = [...data[0].incorrectAnswers, data[0].correctAnswer]
+//         correctOrder(answers);
+//         console.log(answers);
+//         for(let i = 0; i < data.length; i++){
+//             trivia.push(data[0])
+//         }
+//         console.log(trivia.length);
+//     });
+// }
+
+async function getTrivia(){
+    let response = await fetch(url);
+    let data = await response.json();
+    return data;
+}
+
+function correctOrder(array) {
+    for(let i = array.length-1; i >= 0; i--){
+        const shuffle = Math.floor(Math.random() * (i+1));
+        [array[i], array[shuffle]] = [array[shuffle], array[i]]
+    }
+}
+//end of fetch test
+
 //object to store questions 
 const questions = [
     {
@@ -56,7 +90,7 @@ const questions = [
     },
     {
         question: "Which Planet is the hottest?",
-        optionA: "Jupitar",
+        optionA: "Jupiter",
         optionB: "Mercury",
         optionC: "Earth",
         optionD: "Venus",
@@ -122,9 +156,11 @@ const questions = [
 
 let shuffledQuestions = [] //empty array to shuffle questions
 
-function questionOrder() { //shuffles the questions and stores them in the shuffledQuestions array
+async function questionOrder() { //shuffles the questions and stores them in the shuffledQuestions array
     while(shuffledQuestions.length <= 9){
-        const random = questions[Math.floor(Math.random() * questions.length)];
+        const random = await getTrivia();
+        console.log(random);
+        //const random = questions[Math.floor(Math.random() * questions.length)];
         if (!shuffledQuestions.includes(random)) {
             shuffledQuestions.push(random)
         }
@@ -136,10 +172,17 @@ let playerScore = 0; //holds player score
 let wrongAnswer = 0; //holds #wrong answers by player
 let indexNumber = 0; //used in displaying next question
 
-function DisplayQuestion(index) {
+async function DisplayQuestion(index) {
     resetOptionBackground();
-    questionOrder();
-    const currentQuestion = shuffledQuestions[index];
+   // await getNewQuestions();
+   // console.log(trivia.length + "after function call")
+    await questionOrder();
+    console.log(shuffledQuestions);
+    console.log(shuffledQuestions[0][0]);
+    console.log(shuffledQuestions[0][0].question);
+    console.log(shuffledQuestions[1][0].question);
+    const currentQuestion = shuffledQuestions[index][0];
+    console.log(currentQuestion.question);
     document.getElementById('questionNumber').innerHTML = questionNumber;
     document.getElementById('displayQuestion').innerHTML = currentQuestion.question;
     document.getElementById('option1Label').innerHTML = currentQuestion.optionA;
