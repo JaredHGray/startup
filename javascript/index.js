@@ -183,12 +183,17 @@ async function DisplayQuestion(index) {
     console.log(shuffledQuestions[1][0].question);
     const currentQuestion = shuffledQuestions[index][0];
     console.log(currentQuestion.question);
+
+    let answers = [...currentQuestion.incorrectAnswers, currentQuestion.correctAnswer]
+    console.log(answers)
+    correctOrder(answers);
+    console.log(answers)
     document.getElementById('questionNumber').innerHTML = questionNumber;
     document.getElementById('displayQuestion').innerHTML = currentQuestion.question;
-    document.getElementById('option1Label').innerHTML = currentQuestion.optionA;
-    document.getElementById('option2Label').innerHTML = currentQuestion.optionB;
-    document.getElementById('option3Label').innerHTML = currentQuestion.optionC;
-    document.getElementById('option4Label').innerHTML = currentQuestion.optionD;
+    document.getElementById('option1Label').innerHTML = answers[0];
+    document.getElementById('option2Label').innerHTML = answers[1];
+    document.getElementById('option3Label').innerHTML = answers[2];
+    document.getElementById('option4Label').innerHTML = answers[3];
 }
 
 function checkAnswer(){
