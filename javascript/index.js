@@ -174,35 +174,34 @@ let indexNumber = 0; //used in displaying next question
 
 async function DisplayQuestion(index) {
     resetOptionBackground();
-   // await getNewQuestions();
-   // console.log(trivia.length + "after function call")
     await questionOrder();
-    console.log(shuffledQuestions);
-    console.log(shuffledQuestions[0][0]);
-    console.log(shuffledQuestions[0][0].question);
-    console.log(shuffledQuestions[1][0].question);
     const currentQuestion = shuffledQuestions[index][0];
-    console.log(currentQuestion.question);
 
     let answers = [...currentQuestion.incorrectAnswers, currentQuestion.correctAnswer]
-    console.log(answers)
     correctOrder(answers);
-    console.log(answers)
+
     document.getElementById('questionNumber').innerHTML = questionNumber;
     document.getElementById('displayQuestion').innerHTML = currentQuestion.question;
-    document.getElementById('option1Label').innerHTML = answers[0];
-    document.getElementById('option2Label').innerHTML = answers[1];
-    document.getElementById('option3Label').innerHTML = answers[2];
-    document.getElementById('option4Label').innerHTML = answers[3];
+    for(let i = 0; i < 4; i++){
+        let index = i + 1;
+        document.getElementById(`option${index}Label`).innerHTML = answers[i];
+        document.getElementById(`option${index}`).value = answers[i];
+    }
+    // document.getElementById('option1Label').innerHTML = answers[0];
+    // document.getElementById('option2Label').innerHTML = answers[1];
+    // document.getElementById('option3Label').innerHTML = answers[2];
+    // document.getElementById('option4Label').innerHTML = answers[3];
 }
 
 function checkAnswer(){
-    const currentQuestion = shuffledQuestions[indexNumber]; //get current question
-    const currentQuestionAnswer = currentQuestion.correctOption; //get correct answer
+    const currentQuestion = shuffledQuestions[indexNumber][0]; //get current question
+    const currentQuestionAnswer = currentQuestion.correctAnswer; //get correct answer
+    console.log(currentQuestionAnswer)
     const options = document.getElementsByName('option'); //get contents of all the possible answers
     let correctAnswer = null; 
 
     options.forEach((option) => {
+        console.log(option.value)
         if(option.value == currentQuestionAnswer){
             correctAnswer = option.labels[0].id; 
         } //sets correctAnswer = to the correct radio input button
@@ -239,7 +238,7 @@ function nextQuestion(){
     uncheckButtons();
 
     setTimeout (() => {
-        if(wrongAnswer <= 2 && indexNumber <= 9){
+        if(wrongAnswer <= 2 && indexNumber <= 99){
             DisplayQuestion(indexNumber);
         }
         else{
