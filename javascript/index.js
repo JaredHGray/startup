@@ -41,21 +41,6 @@ const url = "https://the-trivia-api.com/api/questions?limit=1&region=US";
 
 let trivia = [];
 
-// async function getNewQuestions() {
-//     fetch(url)
-//     .then((response) => response.json())
-//     .then((data) => {
-//         console.log(data);
-//         let answers = [...data[0].incorrectAnswers, data[0].correctAnswer]
-//         correctOrder(answers);
-//         console.log(answers);
-//         for(let i = 0; i < data.length; i++){
-//             trivia.push(data[0])
-//         }
-//         console.log(trivia.length);
-//     });
-// }
-
 async function getTrivia(){
     let response = await fetch(url);
     let data = await response.json();
@@ -70,102 +55,8 @@ function correctOrder(array) {
 }
 //end of fetch test
 
-//object to store questions 
-const questions = [
-    {
-        question: "How many hearts does an Octopus have?",
-        optionA: "One",
-        optionB: "Two",
-        optionC: "Three",
-        optionD: "Four",
-        correctOption: "optionC"
-    },
-    {
-        question: "The longest river in the United Kingdom is?",
-        optionA: "River Severn",
-        optionB: "River Mersey",
-        optionC: "River Trent",
-        optionD: "River Tweed",
-        correctOption: "optionA"
-    },
-    {
-        question: "Which Planet is the hottest?",
-        optionA: "Jupiter",
-        optionB: "Mercury",
-        optionC: "Earth",
-        optionD: "Venus",
-        correctOption: "optionB"
-    },
-    {
-        question: "Where is the smallest bone in human body located?",
-        optionA: "Toes",
-        optionB: "Ears",
-        optionC: "Fingers",
-        optionD: "Nose",
-        correctOption: "optionB"
-    },
-    {
-        question: "What is the capital of Germany?",
-        optionA: "Dresden",
-        optionB: "Frankfurt",
-        optionC: "Bonn",
-        optionD: "Berlin",
-        correctOption: "optionD"
-    },
-    {
-        question: "How man states does Nigeria have?",
-        optionA: "24",
-        optionB: "30",
-        optionC: "36",
-        optionD: "37",
-        correctOption: "optionC"
-    },
-    {
-        question: "How many permanent teeth does a dog have?",
-        optionA: "38",
-        optionB: "42",
-        optionC: "40",
-        optionD: "36",
-        correctOption: "optionB"
-    },
-    {
-        question: "Which is the longest river in the world?",
-        optionA: "Nile River",
-        optionB: "Amazon River",
-        optionC: "Yangtze River",
-        optionD: "Congo River",
-        correctOption: "optionA"
-    },
-    {
-        question: "Who was the 13th President of the USA?",
-        optionA: "Mllard Fillmore",
-        optionB: "Franklin Pierce",
-        optionC: "Abraham Lincoln",
-        optionD: "William Harrison",
-        correctOption: "optionA"
-    },
-    {
-        question: "How many players are on a rugby team?",
-        optionA: "10 players",
-        optionB: "12 players",
-        optionC: "15 players",
-        optionD: "17 players",
-        correctOption: "optionC"
-    }
-]
 
 let shuffledQuestions = [] //empty array to shuffle questions
-
-async function questionOrder() { //shuffles the questions and stores them in the shuffledQuestions array
-    while(shuffledQuestions.length <= 9){
-        const random = await getTrivia();
-        console.log(random);
-        //const random = questions[Math.floor(Math.random() * questions.length)];
-        if (!shuffledQuestions.includes(random)) {
-            shuffledQuestions.push(random)
-        }
-    }
-}
 
 let questionNumber = 1; //holds current question number
 let playerScore = 0; //holds player score
@@ -174,34 +65,28 @@ let indexNumber = 0; //used in displaying next question
 
 async function DisplayQuestion(index) {
     resetOptionBackground();
-    await questionOrder();
-    const currentQuestion = shuffledQuestions[index][0];
+    const random = await getTrivia();
+    shuffledQuestions = random[0];
 
-    let answers = [...currentQuestion.incorrectAnswers, currentQuestion.correctAnswer]
+    let answers = [...shuffledQuestions.incorrectAnswers, shuffledQuestions.correctAnswer]
     correctOrder(answers);
 
     document.getElementById('questionNumber').innerHTML = questionNumber;
-    document.getElementById('displayQuestion').innerHTML = currentQuestion.question;
+    document.getElementById('displayQuestion').innerHTML = shuffledQuestions.question;
     for(let i = 0; i < 4; i++){
         let index = i + 1;
         document.getElementById(`option${index}Label`).innerHTML = answers[i];
         document.getElementById(`option${index}`).value = answers[i];
     }
-    // document.getElementById('option1Label').innerHTML = answers[0];
-    // document.getElementById('option2Label').innerHTML = answers[1];
-    // document.getElementById('option3Label').innerHTML = answers[2];
-    // document.getElementById('option4Label').innerHTML = answers[3];
 }
 
 function checkAnswer(){
-    const currentQuestion = shuffledQuestions[indexNumber][0]; //get current question
+    const currentQuestion = shuffledQuestions; //get current question
     const currentQuestionAnswer = currentQuestion.correctAnswer; //get correct answer
-    console.log(currentQuestionAnswer)
     const options = document.getElementsByName('option'); //get contents of all the possible answers
     let correctAnswer = null; 
 
     options.forEach((option) => {
-        console.log(option.value)
         if(option.value == currentQuestionAnswer){
             correctAnswer = option.labels[0].id; 
         } //sets correctAnswer = to the correct radio input button
