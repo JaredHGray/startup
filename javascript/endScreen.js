@@ -13,17 +13,17 @@ function endGame(){
     if(playerWrong == 3){
         remarks = "Better luck next time!";
     }
-    else if(playerWrong < 3 && playerScore < 5){
+    else if(playerWrong < 3 && playerScore < 50){
         remarks = "Oof. Maybe you need to study up...";
     }
-    else if(playerWrong < 3 && (playerScore > 5 && playerScore < 8)){
+    else if(playerWrong < 3 && (playerScore > 5 && playerScore < 80)){
         remarks = "Not bad! But you can do better.";
     }
-    else if(playerWrong < 3 && (playerScore >= 8)){
+    else if(playerWrong < 3 && (playerScore >= 80)){
         remarks = "Great job! Keep it up!";
     }
-    else if(playerWrong <= 0 && (playerScore == 10)){
-        remarks = "Amazing! You know your facts!";
+    else if(playerWrong <= 0 && (playerScore == 100)){
+        remarks = "Amazing! A perfect score! You know your facts!";
     }
 
     const playerGrade = (playerScore / 10) * 100;

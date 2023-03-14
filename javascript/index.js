@@ -13,7 +13,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
    }, 500)
 
    countjob;
-   DisplayQuestion(0);
+   DisplayQuestion();
 
    timer = true; //initates the counter
    setTimeout (() => {
@@ -37,7 +37,7 @@ function countDown() {
 //end of countdown code
 
 //testing fetch
-const url = "https://the-trivia-api.com/api/questions?limit=1&region=US";
+const url = "https://the-trivia-api.com/api/questions?limit=1&region=US&difficulty=medium";
 
 let trivia = [];
 
@@ -63,7 +63,7 @@ let playerScore = 0; //holds player score
 let wrongAnswer = 0; //holds #wrong answers by player
 let indexNumber = 0; //used in displaying next question
 
-async function DisplayQuestion(index) {
+async function DisplayQuestion() {
     resetOptionBackground();
     const random = await getTrivia();
     shuffledQuestions = random[0];
@@ -124,7 +124,7 @@ function nextQuestion(){
 
     setTimeout (() => {
         if(wrongAnswer <= 2 && indexNumber <= 99){
-            DisplayQuestion(indexNumber);
+            DisplayQuestion();
         }
         else{
             endTimer();
