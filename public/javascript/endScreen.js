@@ -75,7 +75,7 @@ async function saveScore() {
     let found = false;
     for (const [i, prevScore] of scores.entries()) {
         let compare = timeComparison(newScore, prevScore, minutes, seconds);
-      if ((newScore >= prevScore.score) && compare) {
+      if (compare) {
         scores.splice(i, 0, newScore);
         found = true;
         break;
@@ -89,19 +89,19 @@ async function saveScore() {
     if (scores.length > 10) {
       scores.length = 10;
     }
-
-    return scores;
+    
+    localStorage.setItem('scores', JSON.stringify(scores));
   }
 
-  function timeComparison(score, prevScore, minute, second){
+  function timeComparison(newScore, prevScore, minute, second){
 
     let prevMin = prevScore.time.substring(0,2);
     let prevSec = prevScore.time.substring(5,3);
 
-    if(score > prevScore.score){
+    if(newScore.score > prevScore.score){
         return true;
     }
-    else if(score == prevScore.score){
+    else if(newScore.score == prevScore.score){
         if(+minute <= +prevMin){
             if(+second < +prevSec){
                 return true;
