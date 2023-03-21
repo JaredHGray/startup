@@ -42,6 +42,12 @@ Have you ever debated with your friends about who knows the most random fun fact
 - JS is super complicated it what I got from this project, but at the same time fairly intuitative, especially with VScode helping out by suggesting commands and functions.
 - I also learned it is easier to split up JS into different files based on which HTML they are associated with, making easier to manage.
 - I learned more about appendChild using the DOM and am excited to try this one out.
+- learned the different ways to implement an API http request(get, post, delete, etc)
+- learned how to implement express in node JS and tie to the public folder 
+- make sure to create an API router through which all requests go
+- make sure to define each endpoint desired for the service 
+- my startup will use, create user, login, logout, create score, and get scores 
+- make sure to assign a static port when the website runs multiple programs, such as Simon and the startup
 
 ## Things Learned from Startup
 - It's tricky to line up things to look the way you want them to on a website. You sometimes have conflicting CSS classes and rules, so you need to make sure everything is cleary defined. It helps to divide the webpage by div and section attributes then makes specific classes for each attribute.  
