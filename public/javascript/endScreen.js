@@ -35,32 +35,47 @@ function endGame(){
     document.getElementById('grade').innerHTML = playerGrade;
 }
 
-function saveScore() {
+async function saveScore() {
     const userName = JSON.parse(localStorage.getItem('userResults')).name;
-    let score = JSON.parse(localStorage.getItem('userResults')).score;
-    let time = JSON.parse(localStorage.getItem('userResults')).time;
-    let scores = [];
-    const scoresText = localStorage.getItem('scores');
-    if (scoresText) {
-      scores = JSON.parse(scoresText);
-    }
-    scores = updateScores(userName, score, time, scores);
+    const score = JSON.parse(localStorage.getItem('userResults')).score;
+    const time = JSON.parse(localStorage.getItem('userResults')).time;
 
-    localStorage.setItem('scores', JSON.stringify(scores));
+    const newScore = { name: userName, score: score, time: time };    
+
+    try{
+      const response = await fetch('/api/score', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(newScore),
+      });
+
+      //store what the fetch gave us
+      const scores = await response.json();
+      localStorage.setItem('scores', JSON.stringify(scores));
+    }
+    catch{
+      //if error, store scores locally 
+      updateScoresLocal(newScore);
+    }
+
   }
 
-  function updateScores(userName, score, time, scores) {
-    const newScore = { name: userName, score: score, time: time };
+  function updateScoresLocal(newScore) {
 
-    let minutes = time.substring(0,2);
-    let seconds = time.substring(5,3);
+    let scores = [];
+        const scoresText = localStorage.getItem('scores');
+        if (scoresText) {
+          scores = JSON.parse(scoresText);
+        }
+    let minutes = newScore.time.substring(0,2);
+    let seconds = newScore.time.substring(5,3);
     console.log("current min:" + minutes);
     console.log("current sec:" + seconds);
 
     let found = false;
     for (const [i, prevScore] of scores.entries()) {
-        let compare = timeComparison(score, prevScore, minutes, seconds);
-      if ((score >= prevScore.score) && compare) {
+        let compare = timeComparison(newScore, prevScore, minutes, seconds);
+      if ((newScore >= prevScore.score) && compare) {
         scores.splice(i, 0, newScore);
         found = true;
         break;
