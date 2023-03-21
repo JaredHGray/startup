@@ -39,8 +39,8 @@ app.use((_req, res) => {
 let scores = [];
 function updateScores(newScore, scores) {
 
-    let minutes = time.substring(0,2);
-    let seconds = time.substring(5,3);
+    let minutes = newScore.time.substring(0,2);
+    let seconds = newScore.time.substring(5,3);
     console.log("current min:" + minutes);
     console.log("current sec:" + seconds);
 
