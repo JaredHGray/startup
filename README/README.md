@@ -48,6 +48,10 @@ Have you ever debated with your friends about who knows the most random fun fact
 - make sure to define each endpoint desired for the service 
 - my startup will use, create user, login, logout, create score, and get scores 
 - make sure to assign a static port when the website runs multiple programs, such as Simon and the startup
+- make sure to write down the Atlas login credentials correctly in the env file, else you're gonna have issues 
+- can use the MongoDB manual to learn how to make specific queries and sort data
+- unable to view data in MongoDB, but it returns stil?
+
 
 ## Things Learned from Startup
 - It's tricky to line up things to look the way you want them to on a website. You sometimes have conflicting CSS classes and rules, so you need to make sure everything is cleary defined. It helps to divide the webpage by div and section attributes then makes specific classes for each attribute.  
@@ -69,3 +73,5 @@ Have you ever debated with your friends about who knows the most random fun fact
 - createElement and appendChild of the DOM is useful for table situations 
 - make sure to update parameters of code as you are testing and increasing the question capacity - such as increasing index capacity of shuffledQuestions() and nextQuestions()
 - you can turn a string into a number by adding a + symbol to the front. Example: min = "24" and +min = 24
+- make sure to use PM2 to configure the web service to use node and host the web service
+- use PM2 ls to look at the different sessions
