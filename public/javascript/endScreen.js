@@ -40,7 +40,12 @@ async function saveScore() {
     const score = JSON.parse(localStorage.getItem('userResults')).score;
     const time = JSON.parse(localStorage.getItem('userResults')).time;
 
-    const newScore = { name: userName, score: score, time: time };    
+    let minutes = time.substring(0,2);
+    let seconds = time.substring(5,3);
+    minutes = +minutes;
+    seconds = +seconds;
+
+    const newScore = { name: userName, score: score, time: time, minutes: minutes, seconds: seconds };    
 
     try{
       const response = await fetch('/api/score', {
