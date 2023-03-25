@@ -51,6 +51,8 @@ Have you ever debated with your friends about who knows the most random fun fact
 - make sure to write down the Atlas login credentials correctly in the env file, else you're gonna have issues 
 - can use the MongoDB manual to learn how to make specific queries and sort data
 - unable to view data in MongoDB, but it returns stil?
+- whenever changes are made to how Mongo is accessed, restart the service to push the updates through 
+- manipulate the cookie to control user authentication, utilizing settings such as secure, http, and sameSite.
 
 
 ## Things Learned from Startup
@@ -75,3 +77,5 @@ Have you ever debated with your friends about who knows the most random fun fact
 - you can turn a string into a number by adding a + symbol to the front. Example: min = "24" and +min = 24
 - make sure to use PM2 to configure the web service to use node and host the web service
 - use PM2 ls to look at the different sessions
+- can sort integers in MongoDB through a query that looks like this: sort: {score: -1, minutes: 1}
+    - the -1 means descending order and +1 means ascending order
