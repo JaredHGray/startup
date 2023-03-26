@@ -1,12 +1,12 @@
 async function loginUser() {
-  loginOrCreate(`/api/auth/login`);
+  loginOrCreate(`/api/auth/login`, `html/`);
 }
 
 async function createUser() {
-  loginOrCreate(`/api/auth/create`);
+  loginOrCreate(`/api/auth/create`, ``);
 }
 
-async function loginOrCreate(endpoint) {
+async function loginOrCreate(endpoint, location) {
   const userName = document.querySelector("#username")?.value;
   const password = document.querySelector('#password')?.value;
   
@@ -22,11 +22,10 @@ async function loginOrCreate(endpoint) {
   console.log("status: " + response?.status)
   if (response?.status === 200) {
     localStorage.setItem('userName', userName);
-    window.location.href = 'html/home.html';
+    //window.location.href = 'html/home.html';
+    window.location.href = `${location}home.html`;
   } else {
-   // const modalEl = document.querySelector('#msgModal');
     document.getElementById('errorMsg').innerHTML = `Error: ${body.msg}`;
-    //modalEl.querySelector('.modal-body').textContent = `⚠ Error: ${body.msg}`;
   }
 
 }
