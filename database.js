@@ -41,9 +41,11 @@ function getUserByToken(token){
 }
 
 async function createUser(userName, password) {
+  console.log("in database createUser");
+
   // Hash the password before we insert it into the database
   const passwordHash = await bcrypt.hash(password, 10);
-
+  console.log("createUser: past hash");
   const user = {
     userName: userName,
     password: passwordHash,
@@ -54,4 +56,10 @@ async function createUser(userName, password) {
   return user;
 }
   
-  module.exports = {addScore, getHighScores, getUser, getUserByToken, createUser};
+module.exports = {
+  getUser,
+  getUserByToken,
+  createUser,
+  addScore,
+  getHighScores,
+};

@@ -1,7 +1,7 @@
 window.addEventListener('DOMContentLoaded', (event) => {
+    loadScores();
     playerName();
     getRank();
-    loadScores();
 });
 
 async function loadScores() {
@@ -49,12 +49,12 @@ async function loadScores() {
   }
 
   function playerName() {
-    const player = JSON.parse(localStorage.getItem("userInfo")).name;
+    const player = localStorage.getItem("userName");
     document.getElementById('currentUser').innerHTML = player;
 }
 
 function getRank(){
-    const player = JSON.parse(localStorage.getItem("userInfo")).name;
+    const player = localStorage.getItem("userName");
     let scores = [];
     const scoresText = localStorage.getItem('scores');
     if (scoresText) {

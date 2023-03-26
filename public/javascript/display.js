@@ -4,12 +4,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
 })
 
 function playerName() {
-    const player = JSON.parse(localStorage.getItem("userInfo")).name;
+    const player = localStorage.getItem("userName");
     document.getElementById('currentUser').innerHTML = player;
 }
 
 function getScore(){
-    const player = JSON.parse(localStorage.getItem("userInfo")).name;
+    const player = localStorage.getItem("userName");
     let scores = [];
     const scoresText = localStorage.getItem('scores');
     if (scoresText) {
