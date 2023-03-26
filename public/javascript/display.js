@@ -8,13 +8,13 @@ function playerName() {
     document.getElementById('currentUser').innerHTML = player;
 }
 
-function getScore(){
+async function getScore(){
     const player = localStorage.getItem("userName");
+    
     let scores = [];
-    const scoresText = localStorage.getItem('scores');
-    if (scoresText) {
-        scores = JSON.parse(scoresText);
-    }
+    const response = await fetch('/api/scores');
+    scores = await response.json();
+    
     let result = 0;
     if(scores.length){
         for (const [i, score] of scores.entries()){
