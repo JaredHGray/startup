@@ -71,3 +71,9 @@ function getRank(){
     }
     document.getElementById('userRank').innerHTML = result;
 }
+
+function logout() {
+  fetch(`/api/auth/logout`, {
+    method: 'delete',
+  }).then(() => (window.location.href = '/'));
+}
