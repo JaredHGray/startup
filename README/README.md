@@ -53,6 +53,9 @@ Have you ever debated with your friends about who knows the most random fun fact
 - unable to view data in MongoDB, but it returns stil?
 - whenever changes are made to how Mongo is accessed, restart the service to push the updates through 
 - manipulate the cookie to control user authentication, utilizing settings such as secure, http, and sameSite.
+- it's not too hard to setup websockets for a website. You just need to establish a connection then have the ability to open, close, and pong the connection
+    - after that it's just doing whatever you want with the desired information from the connection
+- make the functions that deal with the websockets asynchronous 
 
 
 ## Things Learned from Startup
