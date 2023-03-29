@@ -1,6 +1,7 @@
 window.addEventListener('DOMContentLoaded', (event) => {
     playerName();
     getScore();
+    configureWebSocket();
 })
 
 function playerName() {
@@ -32,3 +33,35 @@ function logout() {
       method: 'delete',
     }).then(() => (window.location.href = '/'));
   }
+
+// Event messages
+const GameEndEvent = 'gameEnd';
+const GameStartEvent = 'gameStart';
+let socket;
+
+async function configureWebSocket() {
+    const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+    socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
+    socket.onopen = (event) => {
+      console.log("socket is open");
+      displayMsg('system', 'game', 'connected');
+    };
+    socket.onclose = (event) => {
+      displayMsg('system', 'game', 'disconnected');
+      console.log("socket is closed");
+    };
+    socket.onmessage = async (event) => {
+      const msg = JSON.parse(await event.data.text());
+      if (msg.type === GameEndEvent) {
+        displayMsg('player', msg.from, `scored ${msg.value.score}`);
+      } else if (msg.type === GameStartEvent) {
+        displayMsg('player', msg.from, `started a new game`);
+      }
+    };
+}
+
+function displayMsg(cls, from, msg) {
+    const chatText = document.querySelector('#player-messages');
+    chatText.innerHTML =
+        `<div class="event"><span id="${cls}-event">${from}</span> ${msg}</div>` + chatText.innerHTML;
+    }

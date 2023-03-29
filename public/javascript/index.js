@@ -22,8 +22,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
     stopWatch();
 }, 3000)
 
-    // Let other players know a new game has started
-    broadcastEvent(getPlayerName(), GameStartEvent, {});
 });
 
 function getPlayerName() {
@@ -32,7 +30,7 @@ function getPlayerName() {
 
 function countDown() {
     console.log('in the countdown');
-    document.getElementById("container",).innerHTML = `<h2> ${current_count}</h2>`;
+    document.getElementById("container").innerHTML = `<h2> ${current_count}</h2>`;
     if (current_count > 0) {
     current_count--;
     } else {
@@ -180,7 +178,7 @@ function wrongAttempts(){
 }
 
 function storeScore(){
-    let userName = JSON.parse(localStorage.getItem('userInfo')).name;
+    let userName = localStorage.getItem('userName');
     const newScore = {name: userName, score: playerScore, incorrect: wrongAnswer, time: timeKeeper}
     localStorage.setItem("userResults", JSON.stringify(newScore));
     // Let other players know the game has concluded
@@ -240,8 +238,10 @@ async function configureWebSocket() {
     const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
     socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
     socket.onopen = (event) => {
-      //this.displayMsg('system', 'game', 'connected');
       console.log("socket is open");
+      // Let other players know a new game has started
+      broadcastEvent(getPlayerName(), GameStartEvent, {});
+     // this.displayMsg('system', 'game', 'connected');
     };
     socket.onclose = (event) => {
       //this.displayMsg('system', 'game', 'disconnected');
@@ -257,11 +257,11 @@ async function configureWebSocket() {
     };
 }
 
-// function displayMsg(cls, from, msg) {
-// const chatText = document.querySelector('#player-messages');
-// chatText.innerHTML =
-//     `<div class="event"><span class="${cls}-event">${from}</span> ${msg}</div>` + chatText.innerHTML;
-// }
+function displayMsg(cls, from, msg) {
+const chatText = document.querySelector('#player-messages');
+chatText.innerHTML =
+    `<div class="event"><span class="${cls}-event">${from}</span> ${msg}</div>` + chatText.innerHTML;
+}
 
 function broadcastEvent(from, type, value) {
     const event = {
