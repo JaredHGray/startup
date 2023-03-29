@@ -84,4 +84,7 @@ Have you ever debated with your friends about who knows the most random fun fact
     - the -1 means descending order and +1 means ascending order
 - you can use ${} to embed code into html to reduce number of functions by providing different variables to the function based on what you want done
 - restart the service everytime something in the server.js or databse.js file is changed to ensure they are pushed through 
-- use console.log to print out as much as possible when errors are occuring to help discover what the isseu is
+- use console.log to print out as much as possible when errors are occuring to help discover what the issue is
+- window.onload is not an asyncrohonous function!
+- makes sure the websocket is fully loaded and established before trying to send messages across, so either call it in a different function or make it asyncrohonous so no errors occur
+- you can use webSocket calls across JS files as they can use the data provided by the pong
