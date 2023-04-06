@@ -56,6 +56,9 @@ Have you ever debated with your friends about who knows the most random fun fact
 - it's not too hard to setup websockets for a website. You just need to establish a connection then have the ability to open, close, and pong the connection
     - after that it's just doing whatever you want with the desired information from the connection
 - make the functions that deal with the websockets asynchronous 
+- React is kinda confusing - but it reminds me of Vue.js in its setup
+- I like we can separate functions into different jsx files for ease and organization then call all the functions into the main file
+- It looks like I can keep my functions mostly the same and what I'll need to change is the html and display capabilities.
 
 
 ## Things Learned from Startup
